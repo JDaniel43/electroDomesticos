@@ -69,4 +69,4 @@ class Electrodomestico:
 
 
 c= Electrodomestico(100,"blanco","F",5)
-print(c.precioFinal())
+print(c.precioFinal())S
