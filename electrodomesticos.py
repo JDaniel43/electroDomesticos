@@ -1,9 +1,4 @@
 
-
-
-
-
-
 class Electrodomestico:
     
     def __init__(self,precioBase = 100 ,color = "blanco" , consumoEnergetico = "F" , peso = 5 ):
@@ -13,19 +8,16 @@ class Electrodomestico:
 
         self.__color = color
 
-        self.consumoEnergetico =  self.__ComprobarConsumoEnergetico(consumoEnergetico)
-
+        self.__ComprobarConsumoEnergetico(consumoEnergetico)
 
         self.__peso = peso
 
 
-
-    
     def __ComprobarConsumoEnergetico(self, consumoEnergetico):
         if consumoEnergetico == "A" or "F" :
-            return consumoEnergetico
+            self.__consumoEnergetico =  consumoEnergetico
         else:
-            return "F"  
+            self.__consumoEnergetico = "F"  
 
 
     def getPrecioBase (self):
@@ -35,7 +27,7 @@ class Electrodomestico:
         return self.__color 
 
     def getconsumoEnergetico (self):
-        return self.consumoEnergetico
+        return self.__consumoEnergetico
 
     def getpeso (self):
         return self.__peso
