@@ -1,18 +1,31 @@
 
 
 
+
+
+
 class Electrodomestico:
     
-    def __init__(self,__precioBase = 100 ,__color = "blanco" ,__consumoEnergetico = "F" , __peso = 5 ):
-        assert __color == "blanco" or __color == "negro" or __color == "rojo" or __color == "gris" ,f"color must be white: {__color}" 
-        
-        self.__precioBase = __precioBase
+    def __init__(self,precioBase = 100 ,color = "blanco" , consumoEnergetico = "F" , peso = 5 ):
+        assert color == "blanco" or color == "negro" or color == "rojo" or color == "gris" ,f"color must be white: {color}" 
+    
+        self.__precioBase = precioBase
 
-        self.__color = __color
+        self.__color = color
 
-        self.__consumoEnergeico = __consumoEnergetico
+        self.consumoEnergetico =  self.__ComprobarConsumoEnergetico(consumoEnergetico)
 
-        self.__peso = __peso
+
+        self.__peso = peso
+
+
+
+    
+    def __ComprobarConsumoEnergetico(self, consumoEnergetico):
+        if consumoEnergetico == "A" or "F" :
+            return consumoEnergetico
+        else:
+            return "F"  
 
 
     def getPrecioBase (self):
@@ -22,7 +35,7 @@ class Electrodomestico:
         return self.__color 
 
     def getconsumoEnergetico (self):
-        return self.__consumoEnergeico
+        return self.consumoEnergetico
 
     def getpeso (self):
         return self.__peso
@@ -68,5 +81,5 @@ class Electrodomestico:
         return d + e + self.getPrecioBase()
 
 
-c= Electrodomestico(100,"blanco","F",5)
-print(c.precioFinal())
+c= Electrodomestico(100, "blanco", "G", 6)
+print(c.getconsumoEnergetico())
