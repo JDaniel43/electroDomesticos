@@ -1,23 +1,33 @@
 
 class Electrodomestico:
     
-    def __init__(self,precioBase = 100 ,color = "blanco" , consumoEnergetico = "F" , peso = 5 ):
-        assert color == "blanco" or color == "negro" or color == "rojo" or color == "gris" ,f"color must be white: {color}" 
-    
+    def __init__(self, precioBase = 100, color = "blanco", consumoEnergetico = "F", peso = 5):
+        
         self.__precioBase = precioBase
 
-        self.__color = color
+        self.__comprobarColor(color) 
 
-        self.__ComprobarConsumoEnergetico(consumoEnergetico)
+        self.__comprobarConsumoEnergetico(consumoEnergetico)
 
         self.__peso = peso
 
 
-    def __ComprobarConsumoEnergetico(self, consumoEnergetico):
-        if consumoEnergetico == "A" or "F" :
-            self.__consumoEnergetico =  consumoEnergetico
+    def __comprobarColor(self, color): # aseguramos que el objeto tiene el color adecuado
+        
+        a = color.lower()
+        if  a == "blanco" or a == "negro" or a == "rojo" or a == "azul" or a == "gris":
+                self.__color = a
         else:
-            self.__consumoEnergetico = "F"  
+            color = input("El color no es valido, escriba un color entre blanco, negro, rojo, azul o gris : ")
+            self.__comprobarColor(color)
+    
+    def __comprobarConsumoEnergetico(self, consumoEnergetico):  #aseguramos que tiene el consumo electrico adecuado
+        
+        consumoEnergetico = consumoEnergetico.upper()
+        if  consumoEnergetico == "A" or consumoEnergetico == "B" or consumoEnergetico == "C" or consumoEnergetico == "D" or consumoEnergetico == "E" or consumoEnergetico == "F":
+                self.__consumoEnergetico = consumoEnergetico
+        else:
+            self.__consumoEnergetico = "F"
 
 
     def getPrecioBase (self):
@@ -31,7 +41,9 @@ class Electrodomestico:
 
     def getpeso (self):
         return self.__peso
-     
+
+    def setColor(self, color):
+        self.__color = color
 
     def precioFinal(self):
         a = self.getconsumoEnergetico()
@@ -73,5 +85,4 @@ class Electrodomestico:
         return d + e + self.getPrecioBase()
 
 
-c= Electrodomestico(100, "blanco", "G", 6)
-print(c.getconsumoEnergetico())
+
