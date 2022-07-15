@@ -145,25 +145,32 @@ g = Television()
 h = Television() 
 i = Television() 
 j = Television()
-electrodomesticos = [ j, c, d, e, f, g, h, i, a,]
+electrodomesticos = [ a, b, c, d, e, f, g, h, i, j]
 
-for i in electrodomesticos:
+def costoCarrito(Lista):
     costoElectrodomesticos = 0
     costoTelevisiones = 0
     costroLavadoras = 0
-    if isinstance(i, Electrodomestico) == True:
-        costoElectrodomesticos += i.precioFinal()
 
-    elif isinstance(i, Lavadora) == True:
-        costoElectrodomesticos += i.precioFinal()
-
-    else:
+    for i in electrodomesticos:
     
-        costoElectrodomesticos += i.precioFinal()
+        if isinstance(i, Electrodomestico) == True:
+            costoElectrodomesticos += i.precioFinal()
+
+        if isinstance(i, Electrodomestico) == True and isinstance(i, Lavadora) == True:
+            costroLavadoras += i.precioFinal()
+
+        if isinstance(i, Electrodomestico) == True and isinstance(i, Television) == True:
+    
+            costoTelevisiones += i.precioFinal()
+
+    print(" {} de electrodomesticos, {} de lavadoras y {} de televisíones. ".format(costoElectrodomesticos, costroLavadoras, costoTelevisiones))    
+
+
+costoCarrito(electrodomesticos)
 
 
 
-print(" {} de electrodomesticos, {} de lavadoras y {} de televisíones. ".format(costoElectrodomesticos, costroLavadoras, costoTelevisiones))
 
 
     
