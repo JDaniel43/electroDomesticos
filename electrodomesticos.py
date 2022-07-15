@@ -84,5 +84,59 @@ class Electrodomestico:
         
         return d + e + self.getPrecioBase()
 
+class Lavadora(Electrodomestico):
+
+    def __init__(self, precioBase=100, color="blanco", consumoEnergetico="F", peso=5, carga = 5):
+        super().__init__(precioBase, color, consumoEnergetico, peso)
+        
+        self.__carga = carga
+
+
+    def getCarga (self):
+        return self.__carga  
+
+
+    def precioFinal(self):
+
+        if self.getCarga() > 30 :
+            return super().precioFinal() + 50
+
+        else:
+            return super().precioFinal()
+
+
+
+class Television(Electrodomestico):
+
+    def __init__(self, precioBase = 100, color = "blanco", consumoEnergetico = "F", peso = 5,resolucion = 20 ,sintonizadorTdt = False):
+        super().__init__(precioBase, color, consumoEnergetico, peso)
+        self.__resolucion = resolucion
+        self.__sintonizadorTdt = sintonizadorTdt
+
+    def getresolucion (self):
+        return self.__resolucion 
+
+    def getsintonizadorTdt (self):
+        return self.__sintonizadorTdt 
+
+
+    def precioFinal(self):
+        a = super().precioFinal() #precio final sin considerar resolucion ni sintonizador
+        b = 0 #lo que vamos a sumar por resolucion 
+        c = 0 # lo que vamos a sumar poor sinntonizador
+
+        if self.getresolucion() > 40:
+            b = a*.3
+
+        if self.getsintonizadorTdt() == True:
+            c = 50
+
+        return (a + b + c) 
+
+
+         
+
+                  
+
 
 
