@@ -135,8 +135,39 @@ class Television(Electrodomestico):
 
 
          
+a =Electrodomestico() 
+b = Electrodomestico() 
+c = Electrodomestico() 
+d = Lavadora()
+e = Lavadora() 
+f = Lavadora() 
+g = Television() 
+h = Television() 
+i = Television() 
+j = Television()
+electrodomesticos = [ j, c, d, e, f, g, h, i, a,]
 
-                  
+for i in electrodomesticos:
+    costoElectrodomesticos = 0
+    costoTelevisiones = 0
+    costroLavadoras = 0
+    if isinstance(i, Electrodomestico) == True:
+        costoElectrodomesticos += i.precioFinal()
+
+    elif isinstance(i, Lavadora) == True:
+        costoElectrodomesticos += i.precioFinal()
+
+    else:
+    
+        costoElectrodomesticos += i.precioFinal()
+
+
+
+print(" {} de electrodomesticos, {} de lavadoras y {} de televisíones. ".format(costoElectrodomesticos, costroLavadoras, costoTelevisiones))
+
+
+    
+
 
 
 
