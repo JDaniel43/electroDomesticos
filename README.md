@@ -1,2 +1,2 @@
 # electroDomesticos
-trabajos de piri
+trabajos de OOP con python.
